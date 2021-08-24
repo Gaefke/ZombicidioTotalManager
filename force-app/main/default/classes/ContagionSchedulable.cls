@@ -8,7 +8,7 @@ global class ContagionSchedulable implements Schedulable
     
 	private void contagiar ()
     {   
-        List<Criatura__c> humanList = [SELECT id, Criatura__c.RecordTypeId, bunker__r.DefesaEfetivaBunker__c, bunker__c, (select id, acrescimoDefesa__c from RecursosCriatura__r) FROM Criatura__c where recordtypeId = '0125e000001EACsAAO'];
+        List<Criatura__c> humanList = [SELECT id, Criatura__c.RecordTypeId, bunker__r.DefesaBunker__c, bunker__c, (select id, acrescimoDefesa__c from RecursosCriatura__r) FROM Criatura__c where recordtypeId = '0125e000001EACsAAO'];
         List<Criatura__c> zombieList = [SELECT id FROM Criatura__c where recordtypeId <> '0125e000001EACsAAO'];
         for(Criatura__c zb : zombieList)
         {
@@ -19,7 +19,7 @@ global class ContagionSchedulable implements Schedulable
             {
                 if (hmn1.bunker__c != null)
                 {
-                    defesa += hmn1.bunker__r.DefesaEfetivaBunker__c;
+                    defesa += hmn1.bunker__r.DefesaBunker__c;
                 }
                 if(hmn1.RecursosCriatura__r != null)
                 {
@@ -41,7 +41,7 @@ global class ContagionSchedulable implements Schedulable
             {
                 if (hmn1.bunker__c != null)
                 {
-                    defesa += hmn1.bunker__r.DefesaEfetivaBunker__c;
+                    defesa += hmn1.bunker__r.DefesaBunker__c;
                 }
                 if(hmn1.RecursosCriatura__r != null)
                 {

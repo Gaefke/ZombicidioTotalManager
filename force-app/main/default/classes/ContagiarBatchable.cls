@@ -7,7 +7,7 @@ public with sharing class ContagiarBatchable implements Database.Batchable<sObje
   
      public void execute(Database.BatchableContext BC, List<sObject> scope)
      {
-        List<Criatura__c> hum = preenchelistaCriaturaRecordtype();
+        /*List<Criatura__c> hum = preenchelistaCriaturaRecordtype();*/
         List<Criatura__c> zom = new List<Criatura__c>();
      }
 

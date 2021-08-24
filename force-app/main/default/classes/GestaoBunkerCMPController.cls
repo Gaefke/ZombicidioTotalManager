@@ -9,7 +9,7 @@ public class GestaoBunkerCMPController {
     public static Bunker recuperaBunkerMembros( String bunkerId ){
         Bunker bunkerToReturn = new Bunker();
 
-        List<Criatura__c> criaturas = [SELECT id, Name, RecordType.name, Bunker__r.name, Bunker__r.Capacidade__c, Bunker__r.Ativo__c, Bunker__r.DefesaBunker__c, Bunker__r.AcrescimoDefesa__c, Bunker__r.Populacao__c, (SELECT AcrescimoDefesa__c from RecursosCriatura__r) FROM Criatura__c WHERE Bunker__c = :bunkerId limit 200];
+        List<Criatura__c> criaturas = [SELECT id, Name, RecordType.name, Bunker__r.name, Bunker__r.Capacidade__c, Bunker__r.Ativo__c, Bunker__r.DefesaBunker__c, Bunker__r.Populacao__c, (SELECT AcrescimoDefesa__c from RecursosCriatura__r) FROM Criatura__c WHERE Bunker__c = :bunkerId limit 200];
         if( !criaturas.isEmpty() ){
             bunkerToReturn.ativo        = criaturas[0].Bunker__r.Ativo__c;
             bunkerToReturn.nome         = criaturas[0].Bunker__r.name;
