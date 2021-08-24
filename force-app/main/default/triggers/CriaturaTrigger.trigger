@@ -9,6 +9,11 @@ trigger CriaturaTrigger on Criatura__c (after insert, after update, after delete
         Criatura__c antiga = trigger.oldMap.get(nova.id);
         if(nova.Bunker__c != antiga.Bunker__c)
         {
+            if (nova.Bunker__c != null)
+                bunkersUpdateMap.put(nova.Bunker__c, new Bunker__c(id = nova.bunker__c));
+            if (antiga.Bunker__c != null)
+                bunkersUpdateMap.put(antiga.Bunker__c, new Bunker__c(id = antiga.bunker__c));
+
             bunkersUpdateMap.put(cr.Bunker__c,new Bunker__c(id = cr.bunker__c));    
         }
     }
