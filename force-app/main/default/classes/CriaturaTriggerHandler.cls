@@ -1,14 +1,7 @@
 public class CriaturaTriggerHandler extends TriggerHandler
 {
-    public override void beforeUpdate()
-    {
-        system.debug('BeforeUpdate');
-    }
+    /*Map<id,Bunker__c> bunkersUpdateMap = new Map<id,Bunker__c>();
 
-}
-// Identificar os bunkers
-	Map<id,Bunker__c> bunkersUpdateMap = new Map<id,Bunker__c>();
-	
     for(Criatura__c cr: trigger.new)
     {
         Criatura__c nova = cr;
@@ -23,19 +16,23 @@ public class CriaturaTriggerHandler extends TriggerHandler
             bunkersUpdateMap.put(cr.Bunker__c,new Bunker__c(id = cr.bunker__c));    
         }
     }
-	for(Criatura__c cr: trigger.old)
+    for(Criatura__c cr: trigger.old)
     {
         if(trigger.isDelete && cr.Bunker__c != null)
             bunkersUpdateMap.put(cr.Bunker__c, new Bunker__c(id = cr.bunker__c));
     }
-    
+
+    if(trigger.isDelete){
+        update bunkersUpdateMap.values();  
+    }
     system.debug(bunkersUpdateMap);
-    
-    List<Bunker__c> bkList = [select id, (Select id from Criaturas__r) from bunker__c where id in :  bunkersUpdateMap.keySet()];
-	for(Bunker__c bk : bkList)
+
+    List<Bunker__c> bkList = [SELECT id, (SELECT id FROM Criaturas__r) FROM bunker__c WHERE id in :  bunkersUpdateMap.keySet()];
+    for(Bunker__c bk : bkList)
     {
         bunkersUpdateMap.get(bk.id).Populacao__c = bk.Criaturas__r.size();
     }
 
-	update bunkersUpdateMap.values();  
- 
+    update bunkersUpdateMap.values();  */
+}
+
